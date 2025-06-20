@@ -11,4 +11,8 @@ export class DataService {
   getOntarioData(): Observable<any[]> {
     return this.http.get<any[]>('/assets/ontario-data.json');
   }
+
+  getCanadaSummary(): Observable<any> {
+    return this.http.get('assets/canada-summary.json');
+  }
 }

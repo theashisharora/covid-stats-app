@@ -11,6 +11,7 @@ import { MessageService } from '../services/message.service';
 })
 export class Tab2Page implements OnInit {
   records: any[] = [];
+  followUpMessage: string = ''; // <-- Add this line
 
   constructor(
     private messageService: MessageService,
@@ -25,12 +26,15 @@ export class Tab2Page implements OnInit {
   }
 
   goToDetail(item: any) {
-    // Send the message
+    // Send the message when an item is selected
     this.messageService.changeMessage(`Selected: ${item.age_group}`);
-
-    // Navigate to detail
     this.router.navigate(['/tabs/detail'], {
       state: { record: item }
     });
+  }
+
+  sendFollowUp() {
+    this.followUpMessage = '2020-12-30 Follow Up'; // Example usage
+    this.messageService.changeMessage(this.followUpMessage);
   }
 }

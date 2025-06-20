@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-canada-summary',
@@ -7,6 +8,13 @@ import { Component, OnInit } from '@angular/core';
   standalone: false
 })
 export class CanadaSummaryComponent implements OnInit {
-  constructor() { }
-  ngOnInit() {}
+  summary: any = {}; // <-- Add this property
+
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.dataService.getCanadaSummary().subscribe(data => {
+      this.summary = data;
+    });
+  }
 }

@@ -5,27 +5,24 @@
 </ion-header>
 
 <ion-content>
-
-  <!-- Ontario status component -->
   <app-ontario-status></app-ontario-status>
+  
+  <ion-list *ngIf="records.length > 0">
+  <ion-item
+    *ngFor="let item of records"
+    [routerLink]="['/tabs/detail']"
+    [state]="{ record: item }"
+  >
+    <ion-label>
+      <h2>Date: {{ item.date }}</h2>
+    </ion-label>
+  </ion-item>
+</ion-list>
 
-  <!-- List of records -->
-  <ion-list *ngIf="records.length > 0; else loading">
-    <ion-item
-      *ngFor="let item of records"
-      [routerLink]="['/tabs/detail']"
-      [state]="{ record: item }"
-    >
-      <ion-label>
-        <h2>Date: {{ item.date }}</h2>
-      </ion-label>
-    </ion-item>
-  </ion-list>
 
-  <!-- Loading state -->
+
   <ng-template #loading>
     <ion-spinner name="crescent"></ion-spinner>
     <p class="ion-text-center">Loading records...</p>
   </ng-template>
-
 </ion-content>

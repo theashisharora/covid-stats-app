@@ -1,12 +1,45 @@
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>Canada COVID-19 Summary</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <p><strong>Last Updated:</strong> June 20, 2025</p>
-    <p><strong>Total Cases:</strong> 4.8M+</p>
-    <p><strong>Total Deaths:</strong> 55,000+</p>
-    <p><strong>Vaccinations:</strong> 90%+</p>
-    <p><a href="https://health-infobase.canada.ca/covid-19/epidemiological-summary-covid-19-cases.html#a1" target="_blank">Source</a></p>
-  </ion-card-content>
-</ion-card>
+<ion-content class="ion-padding">
+
+  <!-- Canada Summary Card -->
+  <ion-card color="primary" class="summary-card">
+    <ion-card-header>
+      <ion-card-title class="white-text">COVID-19 KEY UPDATES</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="white-text">
+      <p><strong>Cases Today:</strong> <span>{{ summary.casesToday }}</span></p>
+      <p><strong>Total Cases:</strong> <span>{{ summary.totalCases }}</span></p>
+      <p><strong>Active Cases:</strong> <span>{{ summary.activeCases }}</span></p>
+      <p><strong>Total Recovered:</strong> <span>{{ summary.totalRecovered }}</span></p>
+      <p><strong>Deaths Today:</strong> <span>{{ summary.deathsToday }}</span></p>
+      <p><strong>Total Deaths:</strong> <span>{{ summary.totalDeaths }}</span></p>
+      <p><strong>Tested Today:</strong> <span>{{ summary.testedToday }}</span></p>
+      <p><strong>Total Tested:</strong> <span>{{ summary.totalTested }}</span></p>
+      <p><strong>Percent Positive:</strong> <span>{{ summary.percentPositive }}</span></p>
+      <p><strong>People Tested:</strong> <span>{{ summary.peopleTested }}</span></p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Ontario Status Card -->
+  <ion-card color="warning" class="summary-card">
+    <ion-card-header>
+      <ion-card-title class="white-text">ONTARIO STATUS OF CASES</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="white-text">
+      <p><strong>Total Cases:</strong> <span>266,363</span></p>
+      <p><strong>Resolved:</strong> <span>240,494</span></p>
+      <p><strong>Deaths:</strong> <span>6,145</span></p>
+      <p><strong>Hospitalized:</strong> <span>1,273</span></p>
+      <p><strong>ICU:</strong> <span>353</span></p>
+      <p><strong>Ventilator:</strong> <span>216</span></p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-text class="ion-padding white-text">
+    <small>
+      Source: 
+      <a href="https://health-infobase.canada.ca" target="_blank" class="white-text">Canada</a>,
+      <a href="https://covid-19.ontario.ca" target="_blank" class="white-text">Ontario</a> as of Jan 31, 2021.
+    </small>
+  </ion-text>
+
+</ion-content>
