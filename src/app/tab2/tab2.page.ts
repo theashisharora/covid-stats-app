@@ -13,9 +13,9 @@ export class Tab2Page implements OnInit {
   records: any[] = [];
 
   constructor(
-    private http: HttpClient,
+    private messageService: MessageService,
     private router: Router,
-    private messageService: MessageService
+    private http: HttpClient
   ) {}
 
   ngOnInit() {
@@ -25,7 +25,10 @@ export class Tab2Page implements OnInit {
   }
 
   goToDetail(item: any) {
-    this.messageService.changeMessage('📩 Sent from Ontario tab');
+    // Send the message
+    this.messageService.changeMessage(`Selected: ${item.age_group}`);
+
+    // Navigate to detail
     this.router.navigate(['/tabs/detail'], {
       state: { record: item }
     });

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Record Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="selected">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Record Detail</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Age Group:</strong> {{ selected?.age_group }}</p>
+      <p><strong>Date:</strong> {{ selected?.date }}</p>
+      <p><strong>Cases:</strong> {{ selected?.cases }}</p>
+      <p><strong>Message:</strong> {{ message }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" routerLink="/tabs/tab2">← Back to Tab 2</ion-button>
+</ion-content>
+
+<ion-content *ngIf="!selected">
+  <p class="ion-text-center">No record selected.</p>
+</ion-content>

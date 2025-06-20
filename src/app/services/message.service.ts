@@ -8,7 +8,7 @@ export class MessageService {
   private messageSource = new BehaviorSubject<string>('No message yet');
   currentMessage = this.messageSource.asObservable();
 
-  changeMessage(newMessage: string) {
-    this.messageSource.next(newMessage);
+  changeMessage(message: string) {
+    this.messageSource.next(message);
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-ontario-status',
@@ -8,8 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OntarioStatusComponent implements OnInit {
 
-  constructor() { }
+  totalCases = 0;
 
-  ngOnInit() {}
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http.get<any[]>('/assets/ontario-data.json').subscribe(data => {
+      this.totalCases = data.reduce((sum, item) => sum + Number(item.cases || 0), 0);
+    });
+  }
 
 }
